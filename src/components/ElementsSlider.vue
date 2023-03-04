@@ -1,8 +1,5 @@
 <template>
   <div class="elementSlider">
-    <div class="headline">
-      <h2>{{elements[currentIndex].prettyDrawDate}}</h2>
-    </div>
     <div class="container">
       <div class="elementSliderAndTriggers">
 
@@ -22,7 +19,11 @@
         </div>
 
       </div>
-      <div class="text" v-html="elements[currentIndex].id"></div>
+
+      <component
+        :is="layoutComponent"
+        :drawing="elements[currentIndex]"
+      ></component>
 
       <div class="indexIndicator">
         <div
@@ -36,7 +37,8 @@
         </div>
       </div>
 
-    </div>
+  </div>
+
   </div>
 </template>
 
@@ -46,10 +48,9 @@ import { ref } from 'vue';
 
 export default {
     name: "ElementSlider",
-    props: ["elements"],
+    props: ["elements", "layoutComponent"],
     components: { },
     setup(props) {
-      console.log('elements', props.elements);
         const currentIndex = ref(0);
 
         const handleForwardClick = () => {
@@ -62,12 +63,13 @@ export default {
           currentIndex.value = index;
         }
 
+
         return {
           helpers,
           currentIndex,
           handleForwardClick,
           handleBackCLick,
-          setCurrentIndex
+          setCurrentIndex,
         };
     },
 }
