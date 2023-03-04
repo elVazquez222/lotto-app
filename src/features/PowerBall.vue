@@ -5,12 +5,21 @@
 </template>
 
 <script>
+import { onMounted } from 'vue';
+import { fetchPowerBallDrawHistory } from '../services/powerBallService';
+
 export default {
   name: "PowerBall",
-  setup() {
-    return { };
-  },
   components: {},
+  setup() {
+
+    onMounted(async() => {
+      console.log(await fetchPowerBallDrawHistory())
+    })
+
+    return {
+     };
+  },
 };
 </script>
 
@@ -19,3 +28,4 @@ export default {
 
   }
 </style>
+
