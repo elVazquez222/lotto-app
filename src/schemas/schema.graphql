@@ -6,6 +6,7 @@ A country as defined in ISO-3166-1-alpha2 (e.g. US) or a country subdivision as 
 """
 scalar LicensedTerritory
 
+# lotterie Namen
 enum LotteryId {
   Cash4Life
   Cash5
