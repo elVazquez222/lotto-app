@@ -1,6 +1,10 @@
 <template>
   <div class="powerBallDrawings">
-    <ElementsSlider :elements="drawings" :layoutComponent="PowerBallDrawingElement" />
+    <ElementsSlider
+      :elements="drawings"
+      :layoutComponent="PowerBallDrawingElement"
+      indexIndicatorLabel="shortenedDate"
+    />
   </div>
 </template>
 

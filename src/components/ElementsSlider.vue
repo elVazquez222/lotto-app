@@ -17,7 +17,6 @@
         >
           <span class="touchable">{{'<<<'}}</span>
         </div>
-
       </div>
 
       <component
@@ -33,10 +32,11 @@
           :class="[currentIndex === index && 'active']"
           @click="setCurrentIndex(index)"
         >
-        {{element.shortenedDate}}
+          <div class="indexIndicatorLabel">
+            {{element[`${indexIndicatorLabel}`]}}
+          </div>
         </div>
       </div>
-
   </div>
 
   </div>
@@ -48,7 +48,11 @@ import { ref } from 'vue';
 
 export default {
     name: "ElementSlider",
-    props: ["elements", "layoutComponent"],
+    props: [
+      "elements",
+      "layoutComponent",
+      "indexIndicatorLabel"
+    ],
     components: { },
     setup(props) {
         const currentIndex = ref(0);
@@ -140,6 +144,16 @@ export default {
   justify-content: center;
   max-width: 80vw;
   margin: 25px auto;
+  position: relative;
+}
+.indexIndicatorPoint {
+}
+.indexIndicatorLabel {
+  position: absolute;
+  top: 2rem;
+  transform: rotate(60deg);
+  font-size: 10px;
+  transition: all 200ms;
 }
 
 .indexIndicatorPoint {
@@ -151,8 +165,13 @@ export default {
 
 .indexIndicatorPoint:not(:nth-of-type(1)) {
   margin-left: 7px;
+  transition: all 300ms;
 }
 .indexIndicatorPoint.active {
   background: blue;
+}
+.indexIndicatorPoint.active > .indexIndicatorLabel{
+  color: blue;
+  font-weight: bold;
 }
 </style>
