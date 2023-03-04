@@ -18,10 +18,6 @@ interface DrawHistoryPayload {
   draws: FinishedDrawPayload[];
 }
 
-interface DrawResultsFilterInput {
-  lotteries: ['PowerBall'];
-}
-
 interface PowerBallDrawHistoryResponse {
   drawHistory: DrawHistoryPayload;
 }

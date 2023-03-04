@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-import LandingPage from '../features/LandingPage.vue'
+import LandingPage from '../features/landingpage/LandingPage.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -10,7 +10,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/power-ball',
     name: 'power-ball',
-    component: () => import('../features/PowerBall.vue')
+    component: () => import('../features/powerBall/PowerBall.vue')
   }
 ]
 
