@@ -89,7 +89,6 @@ export default {
 
 .container {
   margin: 0 auto;
-  max-width: 65vh;
 }
 
 .elementSliderAndTriggers {
@@ -142,11 +141,11 @@ export default {
 .indexIndicator {
   display: flex;
   justify-content: center;
+  gap: 12px;
+
   max-width: 80vw;
   margin: 25px auto;
   position: relative;
-}
-.indexIndicatorPoint {
 }
 .indexIndicatorLabel {
   position: absolute;
@@ -164,7 +163,6 @@ export default {
 }
 
 .indexIndicatorPoint:not(:nth-of-type(1)) {
-  margin-left: 7px;
   transition: all 300ms;
 }
 .indexIndicatorPoint.active {
