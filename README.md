@@ -1,6 +1,6 @@
 # lotto-app
 
-# DONE
+
 
 ## Project setup
 
