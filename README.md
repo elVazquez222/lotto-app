@@ -46,5 +46,4 @@ Unit testing is done Jest
 
 - type security in components and api request
   - maybe need to use apollo
-- element slider not as re-usable as initally planned
-  - needs some refactoring
+- e2e tets missing
