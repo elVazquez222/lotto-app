@@ -147,6 +147,7 @@ export default {
   max-width: 80vw;
   margin: 25px auto;
   position: relative;
+  white-space: nowrap;
 }
 .indexIndicatorLabel {
   position: absolute;

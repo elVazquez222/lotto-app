@@ -1,6 +1,6 @@
 <template>
   <div class="powerBallDrawingElement">
-    <h1>{{drawing.prettyDrawDate}} </h1>
+    <h2>{{drawing.prettyDrawDate}} </h2>
 
     <h3>Base numbers:</h3>
     <div
@@ -16,30 +16,28 @@
     </div>
 
     <h3>Extra number:</h3>
-    <div
+    <span
       v-for="(drawingResults, index) of drawing.drawnNumbers"
       :key="index"
-      class="baseNumbersContainer"
     >
       <span
-        class="number base"
+        class="number"
         v-for="number of drawingResults.numbers[1].values"
         :key="number"
       >{{number}}</span>
-    </div>
+    </span>
 
     <h3>Powerplay number:</h3>
-    <div
+    <span
       v-for="(drawingResults, index) of drawing.drawnNumbers"
       :key="index"
-      class="baseNumbersContainer"
     >
       <span
-        class="number base"
+        class="number"
         v-for="number of drawingResults.numbers[2].values"
         :key="number"
       >{{number}}</span>
-    </div>
+    </span>
 
 
   </div>
@@ -57,16 +55,22 @@ export default {
 </script>
 
 <style scoped>
+  h2 {
+    text-decoration: underline;
+  }
+
   .powerBallDrawingElement {
     display: flex;
     flex-direction: column;
     min-height: 400px;
   }
+
   .baseNumbersContainer {
     display: flex;
     gap: 10px;
     justify-content: space-evenly;
   }
+
   .number {
     display: flex;
     justify-content: center;
@@ -77,5 +81,7 @@ export default {
     border-radius: 50%;
     width: 25px;
     height: 25px;
+
+    margin-left: auto;
   }
 </style>

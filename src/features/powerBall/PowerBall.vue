@@ -1,6 +1,6 @@
 <template>
   <div class="powerBall">
-    <h1>Play PowerBall</h1>
+    <h1>PowerBall Drawings: </h1>
     <PowerBallDrawingsVue v-if="hasDrawings" :drawings="drawings" />
     <div v-else class="loading">loading</div>
   </div>
