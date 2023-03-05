@@ -8,7 +8,7 @@
   </div>
   <footer>
     <div class="legals touchable impressum">Impressum</div>
-    <div class="legals touchable agb">AGB</div>
+    <!-- <div class="legals touchable agb">AGB</div> -->
   </footer>
 </template>
 
@@ -24,6 +24,13 @@
   --footer-height: 40px;
 
   --text-font-color: #000860;
+}
+
+html,body
+{
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
 }
 
 body {
@@ -108,7 +115,6 @@ footer > div:hover {
 
 
 main {
-  width: 100vw;
   color: var(--text-font-color);
   width: 100%;
   margin: 0px auto;
@@ -170,11 +176,18 @@ blockquote p, a {
 
 @media only screen and (max-width: 600px) {
 
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--global-spacing-xl);
+    padding: 0;
+  }
+
   header {
-    background: rgba(6, 35, 41, 0.40);
-    grid-column: 1 / 13;
-    font-size: 1.5rem;
-    padding: var(--global-spacing-m);
+    font-size: 1.2rem;
+    padding: var(--global-spacing-s);
+    margin-bottom: var(--global-spacing-m);
   }
 
   header p {
@@ -182,9 +195,8 @@ blockquote p, a {
   }
 
   section {
-    grid-column: 2 / 10;
     font-size: 1rem;
-    background: rgb(30 10 26 / 40%);
+    margin-bottom: var(--global-spacing-m);
   }
 
   section h2 {
@@ -193,16 +205,25 @@ blockquote p, a {
 
   blockquote {
     border-radius: 6px;
-    background: rgba(15, 15, 15, 0.55);
     box-shadow: 5px 4px 22px 20px rgb(18 115 119 / 40%);
   }
-
   blockquote p {
     font-size: 1.4rem;
     text-align: center;
     line-height: 1.2;
     padding: 10px;
     text-align: center;
+  }
+  blockquote p, a {
+    color: black;
+    font-size: 16px;
+    display: inline;
+    line-height: 1;
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
   }
 
   .left {
@@ -211,5 +232,6 @@ blockquote p, a {
   .right {
     grid-column: 4 / 12;
   }
+
 }
 </style>
