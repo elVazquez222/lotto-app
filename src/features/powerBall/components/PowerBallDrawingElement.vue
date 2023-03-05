@@ -63,6 +63,8 @@ export default {
     display: flex;
     flex-direction: column;
     min-height: 400px;
+    box-shadow: 2px 2px 7px rgba(180, 180, 180, 1.8);
+    padding: 0 var(--global-spacing-l)
   }
 
   .baseNumbersContainer {

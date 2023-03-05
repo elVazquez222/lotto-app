@@ -22,6 +22,8 @@
   --global-spacing-xxl: 128px;
 
   --footer-height: 40px;
+
+  --text-font-color: #000860;
 }
 
 body {
@@ -107,7 +109,7 @@ footer > div:hover {
 
 main {
   width: 100vw;
-  color: white;
+  color: var(--text-font-color);
   width: 100%;
   margin: 0px auto;
   padding: var(--global-spacing-l);
@@ -130,14 +132,14 @@ header {
   margin-bottom: var(--global-spacing-xxl);
   text-align: center;
   border-radius: 10px;
-  background: rgba(25, 255, 255, .321);
+  background: rgba(25, 25, 25, .1);
   font-weight: bold;
 }
 
 section {
   grid-column: 2 / 8;
   padding: 1rem;
-  background: rgb(30 110 126 / 85%);
+  background: rgba(244,244,244,.8);
   font-size: 1.25rem;
   line-height: 1.5;
   margin-bottom: var(--global-spacing-xxl);
@@ -152,12 +154,12 @@ blockquote {
   box-shadow: 5px 22px 22px rgba(22, 22, 22, .4);
   width: fit-content;
   padding: 10px 40px 10px 10px;
-  background: aliceblue;
+  background: rgba(240, 248, 255, .5);
 }
 
 blockquote p, a {
   color: black;
-  font-size: 3rem;
+  font-size: 32px;
   display: inline;
   line-height: 1;
 }

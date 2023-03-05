@@ -14,11 +14,18 @@ interface FinishedDrawPayload {
   lotteryId: 'PowerBall';
 }
 
+
+export interface FinishedDrawPayloadWithFormattedDateFields
+extends FinishedDrawPayload {
+  shortenedDate: string;
+  prettyDrawDate: string;
+}
+
 interface DrawHistoryPayload {
   draws: FinishedDrawPayload[];
 }
 
-interface PowerBallDrawHistoryResponse {
+export interface PowerBallDrawHistoryResponse {
   drawHistory: DrawHistoryPayload;
 }
 

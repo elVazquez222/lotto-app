@@ -1,42 +1,54 @@
 <template>
   <div class="powerBall">
     <h1>PowerBall Drawings: </h1>
-    <PowerBallDrawingsVue v-if="hasDrawings" :drawings="drawings" />
+    <PowerBallDrawings
+      v-if="hasDrawings"
+      :drawings="drawingsWithFormattedDates"
+    />
     <div v-else class="loading">loading</div>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import helpers from '../../services/helpers';
-
 import { onMounted, ref } from 'vue';
-import { fetchPowerBallDrawHistory } from '../../services/powerBallService';
-import PowerBallDrawingsVue from './components/PowerBallDrawings.vue';
+import PowerBallDrawings from './components/PowerBallDrawings.vue';
+import {
+  fetchPowerBallDrawHistory,
+  PowerBallDrawHistoryResponse,
+  FinishedDrawPayloadWithFormattedDateFields
+} from '../../services/powerBallService';
 
 export default {
   name: "PowerBall",
-  components: {PowerBallDrawingsVue},
+  components: {PowerBallDrawings},
   setup() {
-    const drawings = ref([]);
+    const drawings = ref<PowerBallDrawHistoryResponse | null>(null);
+    const drawingsWithFormattedDates = ref<FinishedDrawPayloadWithFormattedDateFields[]>([]);
     const hasDrawings = ref(false);
 
     onMounted(async() => {
        drawings.value = await fetchPowerBallDrawHistory();
        addShortDateInfoToDrawings();
-       hasDrawings.value = drawings.value.drawHistory?.draws?.length !== 0;
+       hasDrawings.value = drawingsWithFormattedDates.value.length !== 0;
     })
 
     const addShortDateInfoToDrawings = () => {
-        drawings.value = drawings.value.drawHistory.draws.map(drawing => {
-          const shortenedDate = helpers.shortenThisDate(drawing.drawDate);
-          const prettyDrawDate = helpers.prettifyThisDate(drawing.drawDate);
-          return { ...drawing, shortenedDate, prettyDrawDate }
-        })
+
+      if(!drawings.value){
+        return;
+      }
+
+      drawingsWithFormattedDates.value = drawings.value.drawHistory?.draws.map(drawing => {
+        const shortenedDate = helpers.shortenThisDate(drawing.drawDate);
+        const prettyDrawDate = helpers.prettifyThisDate(drawing.drawDate);
+        return { ...drawing, shortenedDate, prettyDrawDate }
+      })
     }
 
     return {
       hasDrawings,
-      drawings,
+      drawingsWithFormattedDates
      };
   },
 };
