@@ -1,3 +1,4 @@
+import * as THREE from 'three';
 <template>
   <div class="landingPage">
     <main>
@@ -89,16 +90,117 @@
       <blockquote>
         <p>Your only chance to get richt!</p>
       </blockquote>
-
     </main>
   </div>
 </template>
 
 <script lang="ts">
+import * as THREE from 'three';
+import image_16 from '../../assets/16.png';
+import image_5 from '../../assets/5.png';
+import image_32 from '../../assets/32.png';
 
 export default {
   name: "LandingPage",
   setup() {
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const canvasElement = document.querySelector('#bg')
+
+    if(canvasElement === null) {
+      return;
+    }
+
+    const renderer = new THREE.WebGLRenderer({
+      canvas: canvasElement,
+    });
+
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.position.setZ(30);
+    camera.position.setX(-3);
+
+    renderer.render(scene, camera);
+
+    const pointLight = new THREE.PointLight(0xffffff);
+    pointLight.position.set(5, 5, 5);
+    const ambientLight = new THREE.AmbientLight(0xffffff);
+    scene.add(pointLight, ambientLight);
+    const spaceTexture = new THREE.TextureLoader().load('space.jpg');
+    scene.background = spaceTexture;
+
+    camera.position.z = 5;
+
+    const ball_16_texture = new THREE.TextureLoader().load(`${image_16}`);
+    const ball_16 = new THREE.Mesh(
+      new THREE.SphereGeometry(2, 24, 24),
+      new THREE.MeshStandardMaterial({
+        map: ball_16_texture,
+      })
+    );
+    scene.add(ball_16);
+    ball_16.position.z = 0;
+    ball_16.position.y = 5;
+    ball_16.position.setX(-10);
+
+    const ball_32_texture = new THREE.TextureLoader().load(`${image_32}`);
+    const ball_32 = new THREE.Mesh(
+      new THREE.SphereGeometry(2, 24, 24),
+      new THREE.MeshStandardMaterial({
+        map: ball_32_texture,
+      })
+    );
+    scene.add(ball_32);
+    ball_32.position.z = 25;
+    ball_32.position.setX(-5);
+
+    ball_32.position.z = 5;
+    ball_32.position.setX(10);
+    const ball_5_texture = new THREE.TextureLoader().load(`${image_5}`);
+    const ball_5 = new THREE.Mesh(
+      new THREE.SphereGeometry(2, 24, 24),
+      new THREE.MeshStandardMaterial({
+        map: ball_5_texture,
+      })
+    );
+    scene.add(ball_5);
+    ball_5.position.z = 25;
+    ball_5.position.setX(-5);
+
+    function moveCamera() {
+      const t = document.body.getBoundingClientRect().top;
+      ball_16.rotation.x += 0.02;
+      ball_16.rotation.y += 0.02;
+      ball_16.rotation.z += 0.02;
+      ball_5.rotation.x += 0.02;
+      ball_5.rotation.y += 0.02;
+      ball_5.rotation.z += 0.02;
+      ball_32.rotation.x += 0.02;
+      ball_32.rotation.y += 0.02;
+      ball_32.rotation.z += 0.02;
+
+      camera.position.z = t * -0.01;
+      camera.position.x = t * -0.0002;
+      camera.rotation.y = t * -0.0001;
+    }
+
+    document.body.onscroll = moveCamera;
+    moveCamera();
+
+    function animate() {
+      requestAnimationFrame(animate);
+
+      ball_16.rotation.x += 0.005;
+      ball_5.rotation.x += 0.005;
+      ball_32.rotation.x += 0.005;
+
+      renderer.render(scene, camera);
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
     return { };
   },
   components: {},

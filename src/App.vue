@@ -8,173 +8,185 @@
   </div>
   <footer>
     <div class="legals touchable impressum">Impressum</div>
-    <!-- <div class="legals touchable agb">AGB</div> -->
+    <div class="legals touchable agb">AGB</div>
   </footer>
 </template>
 
 <style>
+@import url("https://use.typekit.net/jmk3xov.css");
 
-:root {
-  --global-spacing-s: 8px;
-  --global-spacing-m: 16px;
-  --global-spacing-l: 32px;
-  --global-spacing-xl: 64px;
-  --global-spacing-xxl: 128px;
+  :root {
+    --global-spacing-s: 8px;
+    --global-spacing-m: 16px;
+    --global-spacing-l: 32px;
+    --global-spacing-xl: 64px;
+    --global-spacing-xxl: 128px;
 
-  --footer-height: 40px;
+    --footer-height: 40px;
 
-  --text-font-color: #000860;
-}
+    --text-font-color: #000860;
+  }
 
-html,body
-{
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden;
-}
+  html,body
+  {
+      margin: 0px;
+      padding: 0px;
+      overflow-x: hidden;
+  }
 
-body {
-  position: relative;
-  margin: 0;
-}
-body::before {
-  background-image: url('./assets/lotto.jpg');
-  background-size: cover;
-  background-attachment: fixed;
-  content: "";
+  body {
+    position: relative;
+    margin: 0;
+  }
+  body::before {
+    background-image: url('./assets/lotto.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    content: "";
 
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
 
-  opacity: 0.5;
-  z-index: -1;
-}
+    opacity: 0.5;
+    z-index: -1;
+  }
 
-#app {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  padding-bottom: var(--footer-height);
-}
+  canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
 
-.touchable {
-  cursor: pointer;
-}
+  #app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-bottom: var(--footer-height);
+  }
 
-nav {
-  padding: 30px;
-  display: flex;
-  gap: var(--global-spacing-m);
-  z-index: 2;
-}
-nav a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+  .touchable {
+    cursor: pointer;
+  }
 
-  width: 200px;
-  height: 30px;
-  /* border: 1px solid black; */
+  nav {
+    padding: 30px;
+    display: flex;
+    gap: var(--global-spacing-m);
+    z-index: 2;
+  }
+  nav a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 
-  font-weight: bold;
-  font-size: 15px;
-  color: #2c3e50;
-  text-decoration: none;
+    width: 200px;
+    height: 30px;
+    /* border: 1px solid black; */
 
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 3px 2px 2px rgba(22, 22, 22, .2);
-}
-nav a:hover {
-  box-shadow: 3px 2px 5px rgba(22, 22, 22, .65);
-}
-nav a.router-link-exact-active {
-  color: #42b983;
-  box-shadow: 3px 2px 5px rgba(22, 22, 22, .65);
-}
+    font-weight: bold;
+    font-size: 15px;
+    color: #2c3e50;
+    text-decoration: none;
 
-footer {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 3px 2px 2px rgba(22, 22, 22, .2);
+  }
+  nav a:hover {
+    box-shadow: 3px 2px 5px rgba(22, 22, 22, .65);
+  }
+  nav a.router-link-exact-active {
+    color: #42b983;
+    box-shadow: 3px 2px 5px rgba(22, 22, 22, .65);
+  }
 
-  margin-top: auto;
-  padding: var(--global-spacing-s);
-  background: #272727;
-  color: white;
-  height: var(--footer-height);
-  z-index: 2;
-  width: 100%;
-}
-footer > div:hover {
-  color: aquamarine;
-}
+  footer {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: auto;
+    padding: var(--global-spacing-s);
+    background: #272727;
+    color: white;
+    height: var(--footer-height);
+    z-index: 2;
+    width: 100%;
+  }
+  footer > div:hover {
+    color: aquamarine;
+  }
 
 
-main {
-  color: var(--text-font-color);
-  width: 100%;
-  margin: 0px auto;
-  padding: var(--global-spacing-l);
+  main {
+    color: var(--text-font-color);
+    width: 100%;
+    margin: 0px auto;
+    padding: var(--global-spacing-l);
 
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  position: relative;
-}
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    position: relative;
+  }
 
-h1, h2, h3, blockquote {
-  font-family: elevon, sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
+  h1, h2, h3, blockquote {
+    font-family: elevon, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
 
-header {
-  border: 3px solid rgb(255 255 255 / 90%);
-  grid-column: 4 / span 6;
-  font-size: 2.5rem;
-  margin-bottom: var(--global-spacing-xxl);
-  text-align: center;
-  border-radius: 10px;
-  background: rgba(25, 25, 25, .1);
-  font-weight: bold;
-}
+  header {
+    border: 3px solid rgb(255 255 255 / 90%);
+    grid-column: 4 / span 6;
+    font-size: 2.5rem;
+    margin-bottom: var(--global-spacing-xxl);
+    text-align: center;
+    border-radius: 10px;
+    background: rgba(25, 25, 25, .1);
+    font-weight: bold;
+  }
 
-section {
-  grid-column: 2 / 8;
-  padding: 1rem;
-  background: rgba(244,244,244,.8);
-  font-size: 1.25rem;
-  line-height: 1.5;
-  margin-bottom: var(--global-spacing-xxl);
-  padding: 20px;
-}
+  section {
+    grid-column: 2 / 8;
+    padding: 1rem;
+    background: rgba(244,244,244,.8);
+    font-size: 1.25rem;
+    line-height: 1.5;
+    margin-bottom: var(--global-spacing-xxl);
+    padding: 20px;
+  }
 
-blockquote {
-  margin: 0;
-  padding: 0;
-  grid-column: 2 / span 9;
-  margin-bottom: var(--global-spacing-l);
-  box-shadow: 5px 22px 22px rgba(22, 22, 22, .4);
-  width: fit-content;
-  padding: 10px 40px 10px 10px;
-  background: rgba(240, 248, 255, .5);
-}
+  blockquote {
+    margin: 0;
+    padding: 0;
+    grid-column: 2 / span 9;
+    margin-bottom: var(--global-spacing-l);
+    box-shadow: 5px 22px 22px rgba(22, 22, 22, .4);
+    width: fit-content;
+    padding: 10px 40px 10px 10px;
+    background: rgba(240, 248, 255, .5);
+  }
 
-blockquote p, a {
-  color: black;
-  font-size: 32px;
-  display: inline;
-  line-height: 1;
-}
+  blockquote p, a {
+    color: black;
+    font-size: 32px;
+    display: inline;
+    line-height: 1;
+  }
 
-.right {
-  grid-column: 6 / 12;
-}
+  footer {
+    position: fixed;
+    bottom: 0;
+  }
+
+  .right {
+    grid-column: 6 / 12;
+  }
 
 @media only screen and (max-width: 600px) {
 
@@ -221,11 +233,6 @@ blockquote p, a {
     font-size: 16px;
     display: inline;
     line-height: 1;
-  }
-
-  footer {
-    position: fixed;
-    bottom: 0;
   }
 
   .left {
