@@ -2,6 +2,7 @@
   <div class="powerBall">
     <h1>Play PowerBall</h1>
     <PowerBallDrawingsVue v-if="hasDrawings" :drawings="drawings" />
+    <div v-else class="loading">loading</div>
   </div>
 </template>
 
@@ -42,8 +43,13 @@ export default {
 </script>
 
 <style scoped>
-  .powerBall {
+  h1 {
+    text-align: center;
+    padding: var(--global-spacing-l);
+  }
 
+  .powerBall {
+    background: rgba(255, 255, 255, .85)
   }
 </style>
 

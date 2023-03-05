@@ -16,7 +16,7 @@ export default {
   name: "PowerBallDrawings",
   props: ["drawings"],
   components: {ElementsSlider},
-  setup(props) {
+  setup() {
 
     return { PowerBallDrawingElement };
   },

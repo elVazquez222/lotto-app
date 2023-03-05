@@ -42,7 +42,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script >
 import helpers from '../services/helpers';
 import { ref } from 'vue';
 
@@ -63,7 +63,7 @@ export default {
         const handleBackCLick = () => {
             currentIndex.value > 0 && currentIndex.value--;
         };
-        const setCurrentIndex = (index: number) => {
+        const setCurrentIndex = (index) => {
           currentIndex.value = index;
         }
 
@@ -89,11 +89,11 @@ export default {
 
 .container {
   margin: 0 auto;
-}
-
-.elementSliderAndTriggers {
+  padding: 2rem;
+  /* for them forwadr-/backward-arrows */
   position: relative;
 }
+
 .elementSlider .elementSliderAndTriggers {
   margin: 0 auto;
 }
@@ -126,6 +126,7 @@ export default {
 
 .forwardTrigger, .backwardsTrigger {
   position: absolute;
+  top: 50%;
 }
 .forwardTrigger {
   right: -74px;
