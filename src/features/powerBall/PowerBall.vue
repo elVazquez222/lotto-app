@@ -117,5 +117,14 @@ export default {
   .powerBall {
     background: rgba(255, 255, 255, .85)
   }
+
+@media only screen and (max-width: 600px) {
+
+  h1 {
+    text-align: center;
+    padding: var(--global-spacing-s);
+  }
+
+}
 </style>
 

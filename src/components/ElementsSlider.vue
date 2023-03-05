@@ -1,21 +1,25 @@
 <template>
   <div class="elementSlider">
     <div class="container">
-      <div class="elementSliderAndTriggers">
 
-        <div
-          v-if="elements[currentIndex].id !== elements.length-1"
-          class="forwardTrigger"
-          @click="handleForwardClick"
-        >
-          <span class="touchable">{{'>>>'}}</span>
-        </div>
+      <div class="elementSliderAndTriggers">
         <div
           v-if="elements[currentIndex].id !== 0 "
           class="backwardsTrigger"
           @click="handleBackCLick"
         >
-          <span class="touchable">{{'<<<'}}</span>
+          <span class="touchable">
+            <img src="../assets/icon_arrow_dropdown.png" class="backIcon"/>
+          </span>
+        </div>
+        <div
+          v-if="elements[currentIndex].id !== elements.length-1"
+          class="forwardTrigger"
+          @click="handleForwardClick"
+        >
+          <span class="touchable">
+            <img src="../assets/icon_arrow_dropdown.png" class="forwardIcon"/>
+          </span>
         </div>
       </div>
 
@@ -85,6 +89,7 @@ export default {
   flex-direction: column;
   margin: 0 auto;
   width: 100%;
+  padding-bottom: 2rem;
 }
 
 .container {
@@ -135,6 +140,17 @@ export default {
   left: -74px;
 }
 
+.forwardIcon, .backIcon {
+  height: 20px;
+  width: 20px;
+}
+.backIcon {
+  transform: rotate(90deg)
+}
+.forwardIcon {
+  transform: rotate(-90deg)
+}
+
 .elementSlider img {
   max-width: 100%;
 }
@@ -173,5 +189,36 @@ export default {
 .indexIndicatorPoint.active > .indexIndicatorLabel{
   color: blue;
   font-weight: bold;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+  .container {
+    padding-top: 0;
+  }
+
+  .elementSliderAndTriggers {
+    display: flex;
+    gap: var(--global-spacing-l);
+
+  }
+  .forwardTrigger, .backwardsTrigger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: var(--global-spacing-s);
+    border: 1px solid grey;
+    width: 100%;
+    position: unset;
+    margin-bottom: var(--global-spacing-m)
+  }
+  .forwardTrigger {
+    right: 0;
+  }
+  .backwardsTrigger {
+    left: 0;
+  }
 }
 </style>

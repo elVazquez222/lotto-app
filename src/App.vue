@@ -57,6 +57,7 @@ body::before {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  padding-bottom: var(--footer-height);
 }
 
 .touchable {
@@ -108,6 +109,7 @@ footer {
   color: white;
   height: var(--footer-height);
   z-index: 2;
+  width: 100%;
 }
 footer > div:hover {
   color: aquamarine;
