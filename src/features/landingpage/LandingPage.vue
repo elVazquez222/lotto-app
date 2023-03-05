@@ -127,7 +127,7 @@ export default {
     pointLight.position.set(5, 5, 5);
     const ambientLight = new THREE.AmbientLight(0xffffff);
     scene.add(pointLight, ambientLight);
-    const spaceTexture = new THREE.TextureLoader().load('space.jpg');
+    const spaceTexture = new THREE.TextureLoader().load('../../assets/lotto.jpg');
     scene.background = spaceTexture;
 
     camera.position.z = 5;
@@ -207,6 +207,8 @@ export default {
 };
 </script>
 
-<style scoped>
-
+<style>
+#bg {
+  z-index: -1;
+}
 </style>

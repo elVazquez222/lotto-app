@@ -141,8 +141,8 @@ export default {
 }
 
 .forwardIcon, .backIcon {
-  height: 20px;
-  width: 20px;
+  height: 28px;
+  width: 28px;
 }
 .backIcon {
   transform: rotate(90deg)

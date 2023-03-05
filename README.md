@@ -22,6 +22,10 @@ then use `@/schemas/apiUrls.graphQlEp_with_proxy`
 
 Using grid Layout to place content pieces alternately on left and right side
 
+## Testing
+
+Unit testing is done Jest
+
 # TODO
 
 - create service to make api requests ✔️

@@ -12,6 +12,25 @@
   </footer>
 </template>
 
+<script>
+import { onMounted, onBeforeUnmount } from 'vue';
+
+export default {
+  setup() {
+    const reloadWindow = () => {
+      window.location.reload();
+    }
+
+    onMounted(() => {
+      window.addEventListener('resize', reloadWindow);
+    })
+    onBeforeUnmount(() => {
+      window.removeEventListener('resize', reloadWindow);
+    });
+  }
+}
+</script>
+
 <style>
 @import url("https://use.typekit.net/jmk3xov.css");
 

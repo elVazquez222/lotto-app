@@ -12,7 +12,7 @@
     </header>
 
     <PowerBallDrawings
-      v-if="!hasDrawings"
+      v-if="hasDrawings"
       :drawings="drawingsWithFormattedDates"
     />
 
@@ -122,8 +122,8 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-
+    min-height: 300px;
+    font-size: 30px;
   }
 
 @media only screen and (max-width: 600px) {
